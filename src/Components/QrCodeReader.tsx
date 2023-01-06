@@ -1,3 +1,4 @@
+import { Flex } from "@react-native-material/core";
 import { BarCodeScanner } from "expo-barcode-scanner";
 import { useEffect, useState } from "react";
 import { Button, StyleSheet, Text, View } from 'react-native';
@@ -22,7 +23,7 @@ export const QRCodeReader = ({handleBarCodeScanned}:any) => {
   }
 
   return (
-    <View style={styles.container}>
+    <Flex fill style={styles.container}>
       {
         !hasPermission&&
         <Button title="Acceder a camara" onPress={getBarcodeScannerPermissions}/>
@@ -31,6 +32,6 @@ export const QRCodeReader = ({handleBarCodeScanned}:any) => {
         onBarCodeScanned={handleBarCodeScanned}
         style={StyleSheet.absoluteFillObject}
       />
-    </View>
+    </Flex>
   );
 }
